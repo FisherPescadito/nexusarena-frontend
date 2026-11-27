@@ -1,11 +1,11 @@
 :root {
   --bg: #12142a; --surface: #1c2040; --surface-2: #262b54; --line: #343a6b;
-  --text: #eceefb; --muted: #a4a9d1; --accent: #8b6cff; --accent-ink: #fff;
+  --text: #eceefb; --muted: #a4a9d1; --accent: #a48dff; --accent-ink: #12142a;
   --lol: #d4a94e; --val: #ff5a6e; --ok: #3ccf9a; --danger: #ff6b7d;
   --font-head: 'Chakra Petch', system-ui, sans-serif; --font: 'Public Sans', system-ui, sans-serif;
 }
 @media (prefers-color-scheme: light) {
-  :root { --bg: #f3f4fb; --surface: #fff; --surface-2: #e9ebf8; --line: #d3d6ee; --text: #1a1d3a; --muted: #5a5f8c; --accent: #5b3fe0; --danger: #c7283f; --lol: #8a6a14; --val: #c7283f; --ok: #12805c; }
+  :root { --bg: #f3f4fb; --surface: #fff; --surface-2: #e9ebf8; --line: #d3d6ee; --text: #1a1d3a; --muted: #5a5f8c; --accent: #5b3fe0; --accent-ink: #fff; --danger: #c7283f; --lol: #7a5c0f; --val: #c7283f; --ok: #0f7352; }
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 var(--font); min-height: 100vh; display: flex; flex-direction: column; }
@@ -61,7 +61,7 @@ input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--da
 dialog { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); width: min(30rem, 92vw); padding: 1.5rem; }
 dialog::backdrop { background: rgba(5, 6, 20, .7); } dialog menu { display: flex; justify-content: flex-end; gap: .5rem; padding: 0; margin: 0; }
 .toast { position: fixed; right: 1rem; bottom: 1rem; padding: .7rem 1.1rem; border-radius: 8px; background: var(--ok); color: #05281d; font-weight: 600; z-index: 50; box-shadow: 0 6px 20px rgba(0,0,0,.35); }
-.toast.err { background: var(--danger); color: #fff; }
+.toast.err { background: var(--danger); color: var(--accent-ink); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 
 /* ---------- Sprint 3-4: estados, dashboard, bracket, menú móvil ---------- */
@@ -102,3 +102,7 @@ dialog::backdrop { background: rgba(5, 6, 20, .7); } dialog menu { display: flex
 }
 .two-cols { margin-bottom: 1.5rem; }
 .section-title { margin-top: 2rem; color: var(--muted); }
+
+/* Historial del equipo */
+.result.won { color: var(--ok); font-weight: 600; } .result.lost { color: var(--danger); font-weight: 600; }
+.history-item { padding: 1rem 0; border-top: 1px solid var(--line); } .history-item:first-of-type { border-top: 0; }

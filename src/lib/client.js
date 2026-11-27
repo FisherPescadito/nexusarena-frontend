@@ -62,6 +62,7 @@ export const api = {
     update: (id, data) => request('PUT', `/teams/${id}`, data),
     remove: (id) => request('DELETE', `/teams/${id}`),
     addMember: (id, email) => request('POST', `/teams/${id}/members`, { email }),
+    history: (id) => request('GET', `/teams/${id}/history`),
     removeMember: (id, userId) => request('DELETE', `/teams/${id}/members/${userId}`),
   },
 };

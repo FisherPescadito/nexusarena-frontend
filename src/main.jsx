@@ -7,6 +7,7 @@ import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 import Home from './pages/Home.jsx';
 import { Login, Register } from './pages/Auth.jsx';
 import Profile from './pages/Profile.jsx';
+import TeamHistory from './pages/TeamHistory.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Tournaments from './pages/Tournaments.jsx';
 import TournamentDetail from './pages/TournamentDetail.jsx';
@@ -31,6 +32,7 @@ createRoot(document.getElementById('root')).render(
               <Route path="torneos" element={<Protected><Tournaments /></Protected>} />
               <Route path="torneos/:id" element={<Protected><TournamentDetail /></Protected>} />
               <Route path="equipos" element={<Protected roles={['player']}><Teams /></Protected>} />
+              <Route path="equipos/:id/historial" element={<Protected roles={['player']}><TeamHistory /></Protected>} />
               <Route path="perfil" element={<Protected><Profile /></Protected>} />
               <Route path="*" element={<NotFound />} />
             </Route>

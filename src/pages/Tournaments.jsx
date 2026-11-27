@@ -6,11 +6,10 @@ import { ConfirmButton } from '../components/ConfirmButton.jsx';
 import { QueryState } from '../components/QueryState.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 import { api } from '../lib/client.js';
-import { GAMES, STATUS } from '../lib/constants.js';
+import { GAMES, GAME_OPTIONS, STATUS } from '../lib/constants.js';
 import { useApi } from '../lib/hooks.js';
 import { fmtDate, run, toast } from '../lib/ui.js';
 
-const GAME_OPTIONS = Object.fromEntries(Object.entries(GAMES).map(([k, g]) => [k, g.name]));
 const CUPOS = { 4: '4', 8: '8', 16: '16', 32: '32' };
 
 export function TournamentFields({ t = {} }) {

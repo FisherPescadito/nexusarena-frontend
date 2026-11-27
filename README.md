@@ -34,3 +34,9 @@ Vite incluye la variable al compilar, así que si cambia hay que volver a desple
 4. Deploy. Copiar la URL resultante y ponerla como `FRONTEND_URL` en Render (así la API acepta las peticiones del front).
 
 Comandos de Vite: `npm run build` (genera `dist/`) y `npm run preview`.
+
+## Sprint 4
+- **Historial del equipo (HU-18):** ruta `/equipos/:id/historial` (botón "Historial" en cada equipo del jugador).
+- **Inscritos (HU-13):** el detalle del torneo muestra nombre, tag y capitán de cada equipo.
+- **Accesibilidad (HU-17):** colores ajustados para cumplir contraste WCAG AA (4.5:1) en los temas claro y oscuro.
+- Se quitó la cuenta demo de la pantalla de login, se agregó favicon y `GAME_OPTIONS` pasó a `lib/constants.js`.

@@ -75,7 +75,7 @@ export default function TournamentDetail() {
       <section className="panel">
         <h2>Equipos inscritos</h2>
         {t.registrations.length ? (
-          <ul className="chips">{t.registrations.map((r) => <li key={r.id}>{r.team.name}</li>)}</ul>
+          <ul className="chips">{t.registrations.map((r) => <li key={r.id}>{r.team.name} <small className="meta">[{r.team.tag}] · Capitán: {r.team.captainNick}</small></li>)}</ul>
         ) : <p className="empty">Todavía no hay equipos inscritos.</p>}
       </section>
 

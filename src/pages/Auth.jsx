@@ -15,7 +15,6 @@ export function Login() {
         <Field name="password" label="Contraseña" type="password" autoComplete="current-password" />
         <button className="btn">Ingresar</button>
       </Form>
-      <p className="hint">Demo organizador: organizador@demo.com / Demo1234</p>
       <p>¿Sin cuenta? <Link to="/registro">Regístrate</Link></p>
     </section>
   );

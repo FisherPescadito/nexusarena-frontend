@@ -4,3 +4,4 @@ export const GAMES = {
 };
 export const STATUS = { draft: 'Borrador', open: 'Inscripciones abiertas', closed: 'Inscripciones cerradas', ongoing: 'En juego', finished: 'Finalizado' };
 export const ROLES = { player: 'Jugador', organizer: 'Organizador' };
+export const GAME_OPTIONS = Object.fromEntries(Object.entries(GAMES).map(([k, g]) => [k, g.name]));

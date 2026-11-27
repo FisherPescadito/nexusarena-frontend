@@ -1,18 +1,19 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Field, SelectField, FormModal } from '../components/forms.jsx';
 import { GameBadge } from '../components/GameBadge.jsx';
 import { ConfirmButton } from '../components/ConfirmButton.jsx';
 import { QueryState } from '../components/QueryState.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 import { api } from '../lib/client.js';
-import { GAMES } from '../lib/constants.js';
+import { GAMES, GAME_OPTIONS } from '../lib/constants.js';
 import { useApi } from '../lib/hooks.js';
 import { run, toast } from '../lib/ui.js';
 
-const GAME_OPTIONS = Object.fromEntries(Object.entries(GAMES).map(([k, g]) => [k, g.name]));
 
 function TeamCard({ team, user, onModal, reload }) {
   const isCaptain = team.captainId === user.id;
+  const isMember = team.members.some((m) => m.id === user.id);
   return (
     <article className="card">
       <div><GameBadge game={team.game} /> <span className="badge">{team.tag}</span></div>
@@ -29,12 +30,15 @@ function TeamCard({ team, user, onModal, reload }) {
           </li>
         ))}
       </ul>
-      {isCaptain && (
+      {isMember && (
         <div className="actions">
+          <Link className="btn ghost" to={`/equipos/${team.id}/historial`}>Historial</Link>
+          {isCaptain && <>
           <button className="btn ghost" onClick={() => onModal({ type: 'add', team })}>Añadir jugador</button>
           <button className="btn ghost" onClick={() => onModal({ type: 'edit', team })}>Editar</button>
           <ConfirmButton message={`¿Eliminar el equipo "${team.name}"?`}
             onConfirm={() => run(() => api.teams.remove(team.id), 'Equipo eliminado', reload)}>Eliminar</ConfirmButton>
+          </>}
         </div>
       )}
     </article>
